@@ -105,6 +105,7 @@
         .payment-card a:hover {
             text-decoration: underline;
         }
+        /* 📱 Responsive Design for Mobile */
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
@@ -119,6 +120,36 @@
             nav a {
                 position: static;
                 margin-bottom: 10px;
+            }
+            /* Mobile View: Hide 'Back' Text & Show Only Arrow */
+            .back-btn {
+                font-size: 0; /* Hides text */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 30px;
+                background: #10aee3;
+                border-radius: 50%;
+            }
+            .back-btn::before {
+                content: "←"; /* Back Arrow */
+                font-size: 20px;
+                color: #fefdfd;
+            }
+
+            /* ✅ Text size adjustment for Mobile */
+            h1 {
+                font-size: 1.2em;
+            }
+            .container h2 {
+                font-size: 1.3em;
+            }
+            .payment-card p {
+                font-size: 1em;
+            }
+            body {
+                font-size: 14px;
             }
         }
     </style>
