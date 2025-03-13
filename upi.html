@@ -13,6 +13,16 @@
             color: #333;
             text-align: center;
         }
+        nav {
+            background-color: #1a73e8;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 3px solid #135ab5;
+            position: relative;
+            flex-wrap: wrap;
+        }
         .container {
             max-width: 800px;
             margin: 50px auto;
@@ -25,26 +35,31 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #1a73e8;
             padding: 15px;
             color: white;
-            font-size: 14px;
+            font-size: 1.5em;
             font-weight: bold;
             position: relative;
+            background:#10aee3
+            ;
         }
         .back-btn {
             text-decoration: none;
-            color: white;
+            color: #f7f2f2;
             font-size: 18px;
-            background: #1a73e8;
+            background: #10aee3;
             padding: 8px 12px;
             border-radius: 5px;
             position: absolute;
             left: 15px;
             transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight:lighter;
         }
         .back-btn:hover {
-            background: #0d47a1;
+            background: #0f6872;
         }
         .payment-options {
             display: flex;
@@ -84,6 +99,54 @@
             font-weight: bold;
             color: #1a73e8;
         }
+        
+        /* 📱 Responsive Design for Mobile */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 10px;
+            }
+            nav h1 {
+                font-size: 1.5em;
+                margin-top: 10px;
+            }
+            nav a {
+                position: static;
+                margin-bottom: 10px;
+            }
+            /* Mobile View: Hide 'Back' Text & Show Only Arrow */
+            .back-btn {
+                font-size: 0; /* Hides text */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                background: #84d8e0;
+                border-radius: 50%;
+            }
+            .back-btn::before {
+                content: "←"; /* Back Arrow */
+                font-size: 20px;
+                color: #333;
+            }
+
+            /* ✅ Text size adjustment for Mobile */
+            header {
+                font-size: 1.2em;
+            }
+            .container h2 {
+                font-size: 1.3em;
+            }
+            .payment-card p {
+                font-size: 1em;
+            }
+            body {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -96,7 +159,7 @@
         <h2>Select a Payment Option</h2>
         <div class="payment-options">
             <div class="payment-card">
-                <a href="https://payments.google.com/gp/w/home/paymentmethods?sctid=3679089707309437"target="_blank">
+                <a href="https://payments.google.com/gp/w/home/paymentmethods" target="_blank">
                     <img src="googlepay.png" alt="Google Pay">
                     <p>Google Pay</p>
                 </a>
@@ -109,14 +172,20 @@
             </div>
             <div class="payment-card">
                 <a href="https://paytm.com/" target="_blank">
-                    <img src="paytam.png" alt="Paytm">
+                    <img src="paytm.png" alt="Paytm">
                     <p>Paytm</p>
+                </a>
+            </div>
+            <div class="payment-card">
+                <a href="https://www.amazon.in/b?node=21230067031" target="_blank">
+                    <img src="amazonpay.png" alt="Amazon Pay">
+                    <p>Amazon Pay</p>
                 </a>
             </div>
             <div class="payment-card">
                 <a href="https://navi.com/" target="_blank">
                     <img src="navi.png" alt="Navi">
-                    <p>Amazon Pay</p>
+                    <p>Navi</p>
                 </a>
             </div>
         </div>
