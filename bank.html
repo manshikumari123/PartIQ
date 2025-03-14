@@ -25,26 +25,30 @@
       padding: 40px 0;
     }
 
+    /* Navigation Bar */
     nav {
       background-color: #10aee3;
       padding: 15px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       border-bottom: 3px solid #10aee3;
-    }
-
-    .nav-content {
-      display: flex;
-      align-items: center;
-      gap: 12px; /* Space between arrow and text */
+      position: relative;
     }
 
     .back-btn {
-      font-size: 22px;
+      font-size: 18px;
       color: #ffffff;
       text-decoration: none;
       font-weight: bold;
+      display: flex;
+      align-items: center;
+      position: absolute;
+      left: 15px;
+    }
+
+    .back-text {
+      margin-left: 8px;
     }
 
     nav h1 {
@@ -52,9 +56,11 @@
       font-weight: bold;
       color: #ffffff;
       letter-spacing: 1px;
+      margin: 0 auto;
       text-align: center;
     }
 
+    /* Payment Methods */
     .payment-methods {
       display: flex;
       justify-content: space-around;
@@ -98,22 +104,21 @@
       text-decoration: underline;
     }
 
+    /* Responsive Design */
     @media (max-width: 768px) {
       nav {
         padding: 10px;
-      }
-
-      .nav-content {
-        flex-direction: row; /* Keeps text and arrow in line */
         justify-content: center;
       }
 
-      .back-btn {
-        font-size: 20px;
+      .back-text {
+        display: none;
       }
 
       nav h1 {
-        font-size: 1.4em;
+        font-size: 1em;
+        width: 100%;
+        text-align: center;
       }
 
       .payment-methods {
@@ -128,15 +133,19 @@
       .payment-card img {
         width: 120px;
       }
+
+      body {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
 <body>
   <nav>
-    <div class="nav-content">
-      <a href="javascript:history.back()" class="back-btn">&#8592;</a>
-      <h1>Cartify Payment Options</h1>
-    </div>
+    <a href="javascript:history.back()" class="back-btn">
+      &#8592; <span class="back-text">Back</span>
+    </a>
+    <h1>Choose Your Payment Method</h1>
   </nav>
 
   <div class="container">
