@@ -13,15 +13,37 @@
             color: #333;
             text-align: center;
         }
-        nav {
-            background-color: #1a73e8;
+        header {
+            background: #10aee3;
             padding: 15px;
+            color: white;
+            font-size: 1.5em;
+            font-weight: bold;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 3px solid #144f9b;
             position: relative;
-            flex-wrap: wrap;
+        }
+        .back-btn {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            background: #10aee3;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: lighter;
+        }
+        .back-btn:hover {
+            background: #0f6872;
+        }
+        .logo {
+            height: 40px;
+            width: auto;
+            margin-right: 15px;
         }
         .container {
             max-width: 800px;
@@ -30,36 +52,6 @@
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
-        }
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
-            color: white;
-            font-size: 1.5em;
-            font-weight: bold;
-            position: relative;
-            background:#10aee3
-            ;
-        }
-        .back-btn {
-            text-decoration: none;
-            color: #fffefe;
-            font-size: 18px;
-            background: #10aee3;
-            padding: 8px 12px;
-            border-radius: 5px;
-            position: absolute;
-            left: 15px;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-weight:lighter;
-        }
-        .back-btn:hover {
-            background: #0f6872;
         }
         .payment-options {
             display: flex;
@@ -99,30 +91,21 @@
             font-weight: bold;
             color: #1a73e8;
         }
-        
-        /* 📱 Responsive Design for Mobile */
+
+        /* 📱 Mobile View Adjustments */
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
+            header {
+                flex-direction: row;
+                justify-content: space-between;
                 align-items: center;
-                text-align: center;
-                padding: 10px;
+                font-size: 1em;
             }
-            nav h1 {
-                font-size: 1.1em;
-                margin-top: 10px;
+            .logo {
+                height: 20px; /* Mobile ke liye thoda chhota */
+                margin-right: 1px;
             }
-            nav a {
-                position: static;
-                margin-bottom: 10px;
-            }
-            nav .logo {
-                height: 40px;
-                left: 85%;
-            }
-            /* Mobile View: Hide 'Back' Text & Show Only Arrow */
             .back-btn {
-                font-size: 0; /* Hides text */
+                font-size: 0;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -134,21 +117,7 @@
             .back-btn::before {
                 content: "←"; /* Back Arrow */
                 font-size: 20px;
-                color: #fefdfd;
-            }
-
-            /* ✅ Text size adjustment for Mobile */
-            header {
-                font-size: 1.2em;
-            }
-            .container h2 {
-                font-size: 1.3em;
-            }
-            .payment-card p {
-                font-size: 1em;
-            }
-            body {
-                font-size: 14px;
+                color: #fff;
             }
         }
     </style>
@@ -157,8 +126,9 @@
     <header>
         <a href="index.html" class="back-btn">&#8592; Back</a>
         <span>ParkIQ Secure Payments</span>
+        <img src="parkiq 2.png" alt="ParkIQ" class="logo">
     </header>
-    
+
     <div class="container">
         <h2>Select a Payment Option</h2>
         <div class="payment-options">
