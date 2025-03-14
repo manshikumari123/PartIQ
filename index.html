@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="sachin">
-    <title>Payment Gateway </title>
+    <meta name="description" content="ParkIQ Payment">
+    <title>Payment Gateway | ParkIQ</title>
     <style>
         * {
             margin: 0;
@@ -25,21 +25,37 @@
             padding: 30px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
+            text-align: center;
         }
         nav {
             background-color: #10aee3;
             padding: 15px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            border-bottom: 3px solid #0d91c5;
-            position: relative;
+            justify-content: center;
+            border-bottom: 3px solid #10aee3;
             flex-wrap: wrap;
+            position: relative;
         }
-        nav img {
-            width: 50px;
-            height: auto;
-            margin-right: 15px;
+        nav .back-btn {
+            position: absolute;
+            left: 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #fff;
+        }
+        nav .back-btn::before {
+            content: "←";
+            font-size: 22px;
+            margin-right: 8px;
+        }
+        nav .logo {
+            height: 50px; /* ParkIQ logo size */
+            width: auto;
+            position: absolute;
+            left: 93%;
+            transform: translateX(-10%);
         }
         nav h1 {
             font-size: 1.8em;
@@ -47,21 +63,9 @@
             color: #fff;
             letter-spacing: 1px;
             text-align: center;
-            flex: 1;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2em;
-            font-weight: bold;
-            padding: 10px 15px;
-        }
-        nav a:hover {
-            background-color: #0d91c5;
-            border-radius: 5px;
+            width: 100%;
         }
         .total {
-            text-align: center;
             font-size: 22px;
             font-weight: bold;
             margin-top: 20px;
@@ -105,60 +109,49 @@
         .payment-card a:hover {
             text-decoration: underline;
         }
-        /* 📱 Responsive Design for Mobile */
+
+        /* 📱 Responsive Design */
         @media (max-width: 768px) {
             nav {
-                flex-direction: column;
+                flex-direction: row;
+                justify-content: space-between;
                 align-items: center;
-                text-align: center;
                 padding: 10px;
             }
-            nav h1 {
-                font-size: 1.5em;
-                margin-top: 10px;
-            }
-            nav a {
-                position: static;
-                margin-bottom: 10px;
-            }
-            /* Mobile View: Hide 'Back' Text & Show Only Arrow */
-            .back-btn {
-                font-size: 0; /* Hides text */
+            nav .back-btn {
+                font-size: 0;
+                width: 40px;
+                height: 40px;
+                background: #10aee3;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                width: 40px;
-                height: 30px;
-                background: #10aee3;
                 border-radius: 50%;
             }
-            .back-btn::before {
-                content: "←"; /* Back Arrow */
-                font-size: 20px;
-                color: #fefdfd;
+            nav .back-btn::before {
+                font-size: 24px;
+                margin: 0;
             }
-
-            /* ✅ Text size adjustment for Mobile */
-            h1 {
-                font-size: 1.2em;
+            nav .logo {
+                height: 20px;
+                left: 87%;
             }
-            .container h2 {
+            nav h1 {
                 font-size: 1.3em;
+                text-align: center;
+                flex-grow: 1;
             }
-            .payment-card p {
-                font-size: 1em;
-            }
-            body {
-                font-size: 14px;
+            .total {
+                font-size: 18px;
             }
         }
     </style>
 </head>
 <body>
     <nav>
-        <a href="dashbord.html">&#8592; Back</a>
-        <img src="" alt="">
-        <h1>Bank Payment Gateway</h1>
+        <a href="dashboard.html" class="back-btn">Back</a>
+        <img src="parkiq 2.png" alt="ParkIQ" class="logo">
+        <h1>ParkIQ Payment Center</h1>
     </nav>
 
     <div class="container">
@@ -177,12 +170,12 @@
                     <div><span>Internet Banking</span></div>
                 </a>
             </div>
-            <div class="payment-card">
-                <a href="#" onclick="makePayment('Credit Card')">
+            <!-- <div class="payment-card">
+                <a href="card.html">
                     <img src="card.png" alt="Credit Card">
                     <div><span>Credit Card Payment</span></div>
                 </a>
-            </div>
+            </div> -->
         </div>
     </div>
 </body>
