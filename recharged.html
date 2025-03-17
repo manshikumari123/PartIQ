@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFID Recharge | ParkIQ</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #ffffff;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #10aee3;
+            padding: 10px 20px;
+            color: white;
+        }
+        .back-btn {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .logo {
+            width: 100px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 80px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            margin-bottom: 15px;
+            color: #10aee3;
+        }
+        input {
+            width: 80%;
+            padding: 14px;
+            margin: 12px 0;
+            border: 2px solid #10aee3;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: bold;
+            outline: none;
+            text-align: center;
+        }
+        input:focus {
+            border-color: #005f9e;
+            box-shadow: 0 0 8px rgba(16, 174, 227, 0.5);
+        }
+        button {
+            width: 80%;
+            padding: 14px;
+            background: #10aee3;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #008ecf;
+        }
+        .total{
+            flex-grow: 1; text-align: center; margin: 0;
+        }
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .logo {
+                width: 40px;
+            }
+            .container {
+                width: 80%;
+                margin: 50px auto;
+                padding: 20px;
+            }
+            input {
+                width: 80%;
+            }
+            button {
+                width: 90%;
+            }
+            .total {
+                font-size: 14px;
+            }
+            .back-text {
+        display: none;
+      }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="javascript:history.back()" class="back-btn">
+            &#8592; <span class="back-text">Back</span>
+          </a>
+        <h1 class="total">RFID Recharge</h1>
+        <img src="parkiq 2.png" alt="ParkIQ" class="logo">
+    </nav>
+
+    <div class="container">
+        <h2>🔄 RFID Recharge</h2>
+        <input type="text" id="name" placeholder="Enter Name" required>
+        <input type="text" id="vehicleNumber" placeholder="Enter Vehicle Number" required>
+        <input type="number" id="amount" placeholder="Enter Amount (₹)" required>
+        <button onclick="recharge()">Recharge Now</button>
+    </div>
+
+    <script>
+        function recharge() {
+            let name = document.getElementById("name").value;
+            let vehicleNumber = document.getElementById("vehicleNumber").value;
+            let amount = document.getElementById("amount").value;
+
+            if (!name || !vehicleNumber || !amount) {
+                alert("Please fill all fields!");
+                return;
+            }
+
+            let data = { name, vehicleNumber, amount };
+
+            fetch("https://script.google.com/macros/s/AKfycbxEXAMPLEURL/exec", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(responseData => {
+                if (responseData.status === "success") {
+                    window.location.href = "success.html";
+                } else {
+                    alert("Recharge Failed. Please try again.");
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("Recharge Failed. Please try again.");
+            });
+        }
+    </script>
+</body>
+</html>
