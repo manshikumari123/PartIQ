@@ -99,8 +99,8 @@
                 font-size: 14px;
             }
             .back-text {
-        display: none;
-      }
+                display: none;
+            }
         }
     </style>
 </head>
@@ -108,7 +108,7 @@
     <nav>
         <a href="javascript:history.back()" class="back-btn">
             &#8592; <span class="back-text">Back</span>
-          </a>
+        </a>
         <h1 class="total">RFID Recharge</h1>
         <img src="parkiq 2.png" alt="ParkIQ" class="logo">
     </nav>
@@ -134,15 +134,20 @@
 
             let data = { name, vehicleNumber, amount };
 
-            fetch("https://script.google.com/macros/s/AKfycbxEXAMPLEURL/exec", {
+            // Dummy API Call for Testing
+            fetch("https://jsonplaceholder.typicode.com/posts", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
             })
             .then(response => response.json())
             .then(responseData => {
-                if (responseData.status === "success") {
-                    window.location.href = "success.html";
+                console.log(responseData); // Log response for debugging
+
+                // Simulate Success Response
+                if (responseData.id) {
+                    alert("Recharge Successful!");
+                    window.location.href = "success.html"; // Redirect to success page
                 } else {
                     alert("Recharge Failed. Please try again.");
                 }
